@@ -27,6 +27,7 @@ export function run(program, input) {
   let sp = 0, cp = 0, ol = 0, ia = 0, pc = 0, st2 = 0;
   const done = (exit) => ({ stdout: out.subarray(0, ol), exit });
   for (;;) {
+    // bounds, then opcode, then the stack shape
     if (st2 === 1e6) return done(10);
     if (pc < 0 || pc >= len) return done(9);
     const op = NAME[program[pc]];
